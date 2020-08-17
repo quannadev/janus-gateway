@@ -265,7 +265,7 @@
 #include "../rtcp.h"
 #include "../sdp-utils.h"
 #include "../utils.h"
-
+#include "../callbackService/callback.h"
 
 /* Plugin information */
 #define JANUS_VIDEOCALL_VERSION			6
@@ -470,7 +470,7 @@ int janus_videocall_init(janus_callbacks *callback, const char *config_path) {
 	/* Read configuration */
 	char filename[255];
 	g_snprintf(filename, 255, "%s/%s.jcfg", config_path, JANUS_VIDEOCALL_PACKAGE);
-	JANUS_LOG(LOG_VERB, "Configuration file: %s\n", filename);
+	JANUS_LOG(LOG_INFO, "Configuration file: %s\n", filename);
 	janus_config *config = janus_config_parse(filename);
 	if(config == NULL) {
 		JANUS_LOG(LOG_WARN, "Couldn't find .jcfg configuration file (%s), trying .cfg\n", JANUS_VIDEOCALL_PACKAGE);
@@ -605,7 +605,7 @@ void janus_videocall_create_session(janus_plugin_session *handle, int *error) {
 	janus_mutex_lock(&sessions_mutex);
 	g_hash_table_insert(sessions, handle, session);
 	janus_mutex_unlock(&sessions_mutex);
-
+	JANUS_LOG(LOG_INFO, ">>> create session name: %s", session->username);
 	return;
 }
 
@@ -629,7 +629,7 @@ void janus_videocall_destroy_session(janus_plugin_session *handle, int *error) {
 		JANUS_LOG(LOG_VERB, "  -- Removed: %d\n", res);
 	}
 	g_hash_table_remove(sessions, handle);
-	janus_mutex_unlock(&sessions_mutex);
+	janus_mutex_unlock(&sessions_mutex)
 	return;
 }
 

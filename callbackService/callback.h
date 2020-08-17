@@ -7,4 +7,7 @@
 
 #endif //JANUS_GATEWAY_CALLBACK_H
 
-#define make_session(id)
+//#define make_session(id)
+//void video_create_session_cb(char name);
+//#define video_destroy_session_cb()
+//#define videocall_incoming_cb()

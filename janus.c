@@ -720,8 +720,6 @@ janus_session *janus_session_create(guint64 session_id) {
 	janus_mutex_lock(&sessions_mutex)
 	g_hash_table_insert(sessions, janus_uint64_dup(session->session_id), session);
 	janus_mutex_unlock(&sessions_mutex)
-	//todo make callback
-	make_session(session_id)
 	return session;
 }
 
