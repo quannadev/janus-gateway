@@ -73,7 +73,7 @@ RUN git clone https://github.com/warmcat/libwebsockets.git \
   && cd ../../ \
   && rm -rf libwebsockets
 
-#ARG JANUS_VERSION=0.10.4
+ARG JANUS_VERSION=0.10.5
 #RUN wget -O janus-gateway.tar.gz https://github.com/quannadev/janus-gateway/archive/v${JANUS_VERSION}.tar.gz \
 #  && mkdir janus-gateway \
 #  && tar xvf janus-gateway.tar.gz -C janus-gateway --strip-components 1 \
@@ -86,8 +86,7 @@ RUN git clone https://github.com/warmcat/libwebsockets.git \
 #  && cd ../ \
 #  && rm -rf janus-gateway.tar.gz janus-gateway
 RUN cd / && git clone https://github.com/quannadev/janus-gateway.git && cd /janus-gateway && \
-    git checkout refs/tags/v0.10.4 && \
-    sh autogen.sh \
+    && sh autogen.sh \
     && ./configure --prefix=/opt/janus --disable-rabbitmq --disable-mqtt --enable-post-processing \
     && make && make install && make configs && ldconfig
 

@@ -717,11 +717,11 @@ janus_session *janus_session_create(guint64 session_id) {
 	session->last_activity = janus_get_monotonic_time();
 	session->ice_handles = NULL;
 	janus_mutex_init(&session->mutex);
-	janus_mutex_lock(&sessions_mutex);
+	janus_mutex_lock(&sessions_mutex)
 	g_hash_table_insert(sessions, janus_uint64_dup(session->session_id), session);
-	janus_mutex_unlock(&sessions_mutex);
+	janus_mutex_unlock(&sessions_mutex)
 	//todo make callback
-	make_session(session_id);
+	make_session(session_id)
 	return session;
 }
 

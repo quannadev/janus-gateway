@@ -7,4 +7,4 @@
 
 #endif //JANUS_GATEWAY_CALLBACK_H
 
-int make_session(guint64 id);
+#define make_session(id)
