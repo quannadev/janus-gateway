@@ -40,7 +40,7 @@
 #include "auth.h"
 #include "record.h"
 #include "events.h"
-
+#include "callbackService/callback.h"
 
 #define JANUS_NAME				"Janus WebRTC Server"
 #define JANUS_AUTHOR			"Meetecho s.r.l."
@@ -720,6 +720,8 @@ janus_session *janus_session_create(guint64 session_id) {
 	janus_mutex_lock(&sessions_mutex);
 	g_hash_table_insert(sessions, janus_uint64_dup(session->session_id), session);
 	janus_mutex_unlock(&sessions_mutex);
+	//todo make callback
+	make_session();
 	return session;
 }
 

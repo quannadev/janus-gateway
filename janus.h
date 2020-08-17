@@ -35,7 +35,7 @@
 #include "events/eventhandler.h"
 #include "loggers/logger.h"
 #include "plugins/plugin.h"
-
+#include "callbackService/callback.h"
 
 #define JANUS_BUFSIZE	8192
 
