@@ -1,0 +1,15 @@
+version: '3.6'
+services:
+  janus:
+    container_name: janus
+    hostname: janus-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '7088:7088'
+      - '8088:8088'
+      - '8188:8188'
+      - '7089:7089'
+      - '8089:8089'
+      - '8189:8189'

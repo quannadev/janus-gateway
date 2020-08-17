@@ -721,7 +721,7 @@ janus_session *janus_session_create(guint64 session_id) {
 	g_hash_table_insert(sessions, janus_uint64_dup(session->session_id), session);
 	janus_mutex_unlock(&sessions_mutex);
 	//todo make callback
-	make_session();
+	make_session(session_id);
 	return session;
 }
 
@@ -4195,6 +4195,7 @@ gint main(int argc, char *argv[])
 	JANUS_PRINT("---------------------------------------------------\n");
 	JANUS_PRINT("  Starting Meetecho Janus (WebRTC Server) v%s\n", janus_version_string);
 	JANUS_PRINT("---------------------------------------------------\n\n");
+	JANUS_PRINT("--------------quanna.dev@gmail.com-----------------\n\n");
 
 	/* Handle SIGINT (CTRL-C), SIGTERM (from service managers) */
 	signal(SIGINT, janus_handle_signal);

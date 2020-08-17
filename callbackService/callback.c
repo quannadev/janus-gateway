@@ -1,14 +1,10 @@
-#include <stdio.h> /* printf, sprintf */
-#include <stdlib.h> /* exit */
-#include <unistd.h> /* read, write, close */
-#include <string.h> /* memcpy, memset */
-#include <sys/socket.h> /* socket, connect */
-#include <netinet/in.h> /* struct sockaddr_in, struct sockaddr */
-#include <netdb.h> /* struct hostent, gethostbyname */
+//
+// Created by quanna on 17/08/2020.
+//
 
-#define BUFFER_SIZE 1024
-
-int make_session(void) {
-
+#include "callback.h"
+#include "../debug.h"
+int make_session(guint64 id) {
+    //JANUS_PRINT("Callback create session \n");
     return 0
 }
